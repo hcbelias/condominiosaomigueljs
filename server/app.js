@@ -36,7 +36,21 @@ if (_configEnvironment2['default'].seedDB) {
 
 // Setup server
 var app = (0, _express2['default'])();
+var mailer = require('express-mailer');
 var server = _http2['default'].createServer(app);
+
+mailer.extend(app, {
+  from: 'no-reply@email.com',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'ecomovaapp@gmail.com',
+    pass: 'poioiu098'
+  }
+});
+
 require('./config/express')(app);
 require('./routes')(app);
 

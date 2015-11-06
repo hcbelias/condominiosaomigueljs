@@ -17,6 +17,9 @@ var _path2 = _interopRequireDefault(_path);
 module.exports = function (app) {
 
   // Insert routes below
+  app.use('/api/contact/contact', require('./api/contact'));
+  app.use('/api/contact', require('./api/contact'));
+  app.use('/api/contacts', require('./api/contact'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
 
