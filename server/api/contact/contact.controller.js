@@ -9,7 +9,7 @@ exports.create = function (req, res) {
       return handleError(res, err);
     }
     res.mailer.send('email', {
-      to: 'hcbe2004@gmail.com,alienedecarvalho@gmail.com',
+      to: 'hcbe2004@gmail.com,carvalho_ae@hotmail.com',
       subject: 'Condomínio São Miguel - Contato',
       name: contact.name,
       email: contact.email,
