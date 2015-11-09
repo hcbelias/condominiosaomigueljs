@@ -17,13 +17,12 @@ var _path2 = _interopRequireDefault(_path);
 module.exports = function (app) {
 
   // Insert routes below
-  app.use('/api/contact/contact', require('./api/contact'));
-  app.use('/api/contact', require('./api/contact'));
   app.use('/api/contacts', require('./api/contact'));
-  app.use('/api/things', require('./api/thing'));
-  app.use('/api/users', require('./api/user'));
 
-  app.use('/auth', require('./auth'));
+  app.route('/font/**/:fontName').get(function (req, res) {
+    var fullPath = _path2['default'].resolve(app.get('appPath') + "/assets/fonts/" + req.params.fontName);
+    res.sendFile(fullPath);
+  });
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*').get(_componentsErrors2['default'][404]);
