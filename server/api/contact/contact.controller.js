@@ -14,7 +14,7 @@ exports.create = function (req, res) {
       name: contact.name,
       email: contact.email,
       message: contact.message,
-      phone: contact.phone
+      phone: contact.phone || "nao informado"
     }, function (err) {
       if (err) {
         // handle error
